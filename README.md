@@ -1,15 +1,15 @@
 # Claude Code Brain
 
-A research project extending [EverMemOS](https://github.com/EverMind-AI/EverMemOS) and [evermem-claude-code](https://github.com/EverMind-AI/evermem-claude-code) with the [BMAD Framework](https://github.com/bmad-code-org/BMAD-METHOD) for enhanced AI-assisted development workflows.
+A research project extending [EverMemOS](https://github.com/EverMind-AI/EverMemOS) and [evermem-claude-code](https://github.com/EverMind-AI/evermem-claude-code) with structured workflows for enhanced AI-assisted development.
 
 ## Overview
 
 Claude Code Brain builds upon existing memory infrastructure for Claude Code to provide:
 
 - **Persistent Memory**: Automatic saving and retrieval of conversation context across sessions
-- **Structured Workflows**: BMAD Framework integration for professional AI-driven development
+- **Structured Workflows**: Pre-built slash commands for analysis, planning, and implementation
 - **Local Deployment**: Fully self-hosted memory system with Docker-based infrastructure
-- **Multi-Agent Orchestration**: Collaborative AI agents for complex development tasks
+- **Multi-Agent Support**: Collaborative AI agents for complex development tasks
 
 ## Forked Projects
 
@@ -19,7 +19,6 @@ This project is based on and extends the following open-source projects:
 |---------|---------------------|------|---------|
 | **EverMemOS** | [EverMind-AI/EverMemOS](https://github.com/EverMind-AI/EverMemOS) | [wangmax2011/EverMemOS](https://github.com/wangmax2011/EverMemOS) | Apache 2.0 |
 | **evermem-claude-code** | [EverMind-AI/evermem-claude-code](https://github.com/EverMind-AI/evermem-claude-code) | [wangmax2011/evermem-claude-code](https://github.com/wangmax2011/evermem-claude-code) | MIT |
-| **BMAD Framework** | [bmad-code-org/BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) | - | MIT |
 
 ## Architecture
 
@@ -27,9 +26,9 @@ This project is based on and extends the following open-source projects:
 ┌─────────────────────────────────────────────────────────────┐
 │                    Claude Code Brain                        │
 ├─────────────────────────────────────────────────────────────┤
-│  BMAD Framework (_bmad/)                                    │
-│  ├── Core Workflows (brainstorming, party-mode)            │
-│  └── BMM Workflows (PRD, Architecture, Stories, Dev)       │
+│  Workflow Layer (_bmad/)                                    │
+│  ├── Core Workflows (brainstorming, elicitation)           │
+│  └── Implementation Workflows (PRD, Architecture, Dev)     │
 ├─────────────────────────────────────────────────────────────┤
 │  EverMemOS (Memory Backend)                                 │
 │  ├── Vector Database (Milvus)                               │
@@ -88,24 +87,24 @@ export EVERMEM_API_URL="http://localhost:1995"
 
 Run `/evermem:help` in Claude Code to check the plugin status.
 
-## BMAD Framework Workflows
+## Available Workflows
 
-This project includes the full BMAD Framework for structured AI-driven development:
+This project includes structured workflows for AI-assisted development:
 
-### Phase 1: Analysis
+### Analysis
 - `/workflow-init` - Initialize new project
 - `/product-brief` - Create comprehensive product briefs
 
-### Phase 2: Planning
+### Planning
 - `/create-prd` - Generate Product Requirements Documents
 - `/create-architecture` - Design system architecture
 - `/create-ux-design` - Plan UX patterns and design systems
 
-### Phase 3: Solutioning
+### Solutioning
 - `/create-epics-stories` - Break down requirements into stories
 - `/check-readiness` - Validate implementation readiness
 
-### Phase 4: Implementation
+### Implementation
 - `/create-story` - Generate next development story
 - `/dev-story` - Execute story implementation
 - `/code-review` - Perform adversarial code review
@@ -114,12 +113,12 @@ This project includes the full BMAD Framework for structured AI-driven developme
 
 ```
 .
-├── _bmad/                          # BMAD Framework core
-│   ├── core/                       # Core workflows and agents
-│   │   ├── workflows/              # Core workflows (brainstorming, etc.)
-│   │   └── agents/                 # BMAD Master agent
-│   └── bmm/                        # BMM (Business + Multi-agent + Method)
-│       └── workflows/              # Implementation workflows
+├── _bmad/                          # Workflow definitions
+│   ├── core/                       # Core workflows
+│   │   ├── workflows/              # Brainstorming, elicitation, etc.
+│   │   └── agents/                 # Agent configurations
+│   └── bmm/                        # Implementation workflows
+│       └── workflows/
 │           ├── 1-analysis/
 │           ├── 2-plan-workflows/
 │           └── 4-impl-workflows/
@@ -157,13 +156,6 @@ This project includes the full BMAD Framework for structured AI-driven developme
 
 ## Development
 
-### Adding New BMAD Workflows
-
-1. Create workflow directory under `_bmad/bmm/workflows/`
-2. Add `workflow.md` with workflow definition
-3. Create `steps/` directory with step definitions
-4. Register in Claude Code commands
-
 ### Modifying EverMemOS
 
 See [EverMemOS Contributing Guide](https://github.com/wangmax2011/EverMemOS/blob/main/CONTRIBUTING.md).
@@ -191,14 +183,12 @@ This project is licensed under the [Apache License 2.0](LICENSE).
 
 - **EverMemOS**: Apache License 2.0
 - **evermem-claude-code**: MIT License
-- **BMAD Framework**: MIT License (code), with BMAD Method™ as intellectual property of BMAD Code Organization
 
 See individual project repositories for full license details.
 
 ## Acknowledgments
 
 - [EverMind AI](https://evermind.ai/) for creating EverMemOS and the memory infrastructure
-- [BMAD Code Organization](https://github.com/bmad-code-org) for the BMAD Framework
 - [Anthropic](https://www.anthropic.com/) for Claude Code
 
 ## Support
